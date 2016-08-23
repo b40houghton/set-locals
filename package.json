@@ -1,0 +1,29 @@
+{
+  "name": "set-locals",
+  "version": "1.0.0",
+  "description": "Set local express data from multiple json files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/b40houghton/set-locals.git"
+  },
+  "keywords": [
+    "express",
+    "local",
+    "data",
+    "json"
+  ],
+  "author": "@b40houghton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/b40houghton/set-locals/issues"
+  },
+  "homepage": "https://github.com/b40houghton/set-locals#readme",
+  "dependencies": {
+    "extend": "^3.0.0",
+    "glob": "^7.0.5"
+  }
+}
