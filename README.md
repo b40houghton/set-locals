@@ -1,5 +1,5 @@
 # set-locals
-Set local express data from multiple json files
+Set local express data from multiple or a single json files
 
 ## Usage as middleware in an express.js application
 
