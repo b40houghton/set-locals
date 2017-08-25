@@ -1,6 +1,6 @@
 {
   "name": "set-locals",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Set local express data from multiple json files",
   "main": "index.js",
   "scripts": {

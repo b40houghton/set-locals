@@ -2,6 +2,18 @@ var glob = require('glob');
 var extend = require('extend');
 var fs = require('fs');
 
+function parseJSON(data) {
+	let rtnJSON;
+
+	try {
+		rtnJSON = JSON.parse(data);
+	} catch (e) {
+		rtnJSON = null;
+	}
+
+	return rtnJSON;
+}
+
 /**
  * [set local data from glob of json files]
  * @param {String}   directory [directory to grab json from]
@@ -16,10 +28,14 @@ exports = module.exports = function (directory, locals, callback) {
 		var remaining = files.length;
 
 		for (var file of files) {
-			fs.readFile(file, (err, data) => {
-				if(err) throw err;
+			fs.readFile(file, 'utf8', (err, data) => {
+				if (err) throw err;
 				remaining -= 1;
-				locals = extend(locals, JSON.parse(data));
+
+				let parsedData = parseJSON(data);
+
+				locals = extend(locals, parsedData);
+
 				if(!remaining) return callback();
 			});
 		}
