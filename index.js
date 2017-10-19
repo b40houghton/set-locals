@@ -1,13 +1,16 @@
 var glob = require('glob');
 var extend = require('extend');
 var fs = require('fs');
+var Hjson = require('hjson');
 
-function parseJSON(data) {
+function parseJSON(data, file_path = '') {
 	let rtnJSON;
 
 	try {
-		rtnJSON = JSON.parse(data);
+		rtnJSON = Hjson.parse(data);
 	} catch (e) {
+		console.log(`UNABLE TO PARSE JSON for 'set-locals' in file:\n\t"${file_path}"\n`);
+		console.log(e);
 		rtnJSON = null;
 	}
 
@@ -32,7 +35,7 @@ exports = module.exports = function (directory, locals, callback) {
 				if (err) throw err;
 				remaining -= 1;
 
-				let parsedData = parseJSON(data);
+				let parsedData = parseJSON(data, file);
 
 				locals = extend(locals, parsedData);
 
