@@ -1,12 +1,13 @@
 var glob = require('glob');
 var extend = require('extend');
 var fs = require('fs');
+var Hjson = require('hjson');
 
 function parseJSON(data) {
 	let rtnJSON;
 
 	try {
-		rtnJSON = JSON.parse(data);
+		rtnJSON = Hjson.parse(data);
 	} catch (e) {
 		rtnJSON = null;
 	}
